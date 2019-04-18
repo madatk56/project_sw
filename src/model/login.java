@@ -16,13 +16,14 @@ import java.sql.*;
 public class Login extends HttpServlet {
 	
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			PrintWriter writer = response.getWriter();
+		
 			String user= request.getParameter("username");
 			String pass= request.getParameter("password");
 			checklogin check = new checklogin();
-			if(check.checkuser(user, pass)==true) {
+			if(check.checkuser(user,pass)==true) {
 				 RequestDispatcher rq = request.getRequestDispatcher("/welcome.jsp");
 				 request.setAttribute("username", user);
+				 
 				 rq.forward(request, response);
 				
 		
